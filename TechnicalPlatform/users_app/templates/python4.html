@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Python Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Python Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/python/1"><i class="fas fa-arrow-circle-right">Basic Syntax of Python</i></a>
+     <a href="/python/2"><i class="fas fa-arrow-circle-right">Applications of Python</i></a>
+     <a href="/python/3"><i class="fas fa-arrow-circle-right">Datatypes in Python</i></a>
+     <a href="/python/4"><i class="fas fa-arrow-circle-right">Python Interview Questions</i></a>
+     <a href="/python/5"><i class="fas fa-arrow-circle-right">Python Sending Email using SMTP</i></a>
+     <a href="/python/6"><i class="fas fa-arrow-circle-right">Top Python Frameworks List</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/python/3" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/5" class="btn btn-success font1 ml-2">Next</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Python Interview Questions :</h3>
+   <img class="text-center" src="{%static 'images/python-interview-questions.png'%}" alt="python application">
+   <h3 class="font1 text-left underline">1) What is Python?</h3>
+     <p class="font1">t is a general-purpose computer programming language. It is a high-level, object-oriented language which can run equally on different platforms such as Windows, Linux, UNIX, and Macintosh. It is widely used in data science, machine learning and artificial intelligence domain.</p>
+     <p class="font1">It is easy to learn and require less code to develop the applications and widely used for :</p>
+     <ul>
+       <li>Web development (server-side).</li>
+       <li>Software development.</li>
+       <li>Mathematics.</li>
+       <li>System scripting.</li>
+     </ul>
+     <h3 class="font1 text-left underline">2) What is PEP 8?</h3>
+     <p class="font1">PEP 8 is defined as a document that helps us to provide the guidelines on how to write the Python code. It was written by Guido van Rossum, Barry Warsaw and Nick Coghlan in 2001.</p>
+     <p class="font1">It stands for Python Enhancement Proposal, and its major task is to improve the readability and consistency of Python code.</p>
+     <h3 class="font1 text-left underline">3) What do you mean by Python literals?</h3>
+     <p class="font1">Literals can be defined as a data which is given in a variable or constant. Python supports the following literals:</p>
+     <p class="font1"><strong>String Literals</strong>String literals are formed by enclosing text in the single or double quotes. For example, string literals are string values.</p>
+     <p class="font1"><strong>Numeric Literals</strong>Python supports three types of numeric literals integer, float and complex.</p>
+     <h3 class="font1 text-left underline">4) What are the advantages of Python?</h3>
+     <img class="text-center" src="{%static 'images/advantages-of-python.png'%}" alt="python application">
+     <h3 class="font1 text-left underline">5) What is the use of break statement?</h3>
+     <p class="font1">It is used to terminate the execution of the current loop. Break always breaks the current execution and transfer control to outside the current block. If the block is in a loop, it exits from the loop, and if the break is in a nested loop, it exits from the innermost loop.</p>
+     <img class="text-center" src="{%static 'images/use-of-break-statement.png'%}" alt="python application">
+  </div>
+ <br><div class="container text-right">
+    <a href="/python/3" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/5" class="btn btn-success font1 ml-2">Next</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

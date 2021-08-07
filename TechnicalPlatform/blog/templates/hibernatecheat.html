@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Hibernate(cheatsheet){%endblock%}
+{%block body%}
+<br>
+        <div class="text-white bg-dark">
+          <div class="container text-center">
+            <h2 class="font1"><span class="logo"><img src="{%static 'images/copy.png'%}" alt=""></span>Hibernate Cheat Sheet</h2>
+            <h2 class="font1">refer the content quickly and copy code snippets if necessary !</h2>
+          </div>
+        </div>
+
+<br>
+<div class="container">
+		<ul>
+      <li><b><h3 class="font1">Dependencies:-</h3></b> <pre class="language-html">
+          <code>
+&lt;dependency&gt;
+   &lt;groupId>org.hibernate&lt;/groupId&gt;
+   &lt;artifactId>hibernate-core&lt;/artifactId&gt;
+   &lt;version>4.3.8.Final&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+   &lt;groupId>org.hibernate&lt;/groupId&gt;
+   &lt;artifactId>hibernate-entitymanager&lt;/artifactId&gt;
+   &lt;version>4.3.8.Final&lt;/version&gt;
+&lt;/dependency&gt;
+ </code>
+        </pre></li>
+        <li><b><h3 class="font1">Pure Java configuration of Hibernate:-</h3></b> <pre class="language-java">
+            <code>
+private static SessionFactory sessionFactory;
+
+static {
+    Configuration config = new Configuration()
+       .setProperty("hibernate.dialect",
+                    "org.hibernate.dialect.HSQLDialect")
+       .setProperty("hibernate.connection.driver_class",
+                    "org.hsqldb.jdbcDriver")
+       .setProperty("hibernate.connection.url",
+                    "jdbc:hsqldb:mem:myFavoriteDB")
+       .setProperty("hibernate.connection.username", "somebody")
+       .setProperty("hibernate.connection.password", "IWillNotTellYou")
+       .setProperty("hibernate.hbm2ddl.auto", "update")
+       .setProperty("hibernate.show_sql", "true")
+
+       .addAnnotatedClass(MyBusinessClass.class);
+
+    StandardServiceRegistryBuilder ssrb = new StandardServiceRegistryBuilder()
+       .applySettings(config.getProperties());
+    sessionFactory = config.buildSessionFactory(ssrb.build());
+
+}
+   </code>
+          </pre></li>
+          <li><b><h3 class="font1">Reading and writing entities (native Hibernate style):-</h3></b> <pre class="language-java">
+              <code>
+Session session = sessionFactory.openSession();
+try {
+    List&lt;HighScore%&gt result = (List&lt;MyBusinessClass&gt) session
+                    .createQuery("from MyBusinessClass order by birthdate desc")
+                    .list();
+    return result;
+} finally {
+    session.close();
+}
+Session session = sessionFactory.openSession();
+Transaction transaction = session.beginTransaction();
+session.persist(score);
+transaction.commit();
+session.close();
+       </code>
+            </pre></li>
+            <li><b><h3 class="font1">Persistence.xml (JPA):-</h3></b> <pre class="language-html">
+                <code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0"&gt;
+  &lt;persistence-unit name="myFavoriteDBUnit" /&gt;
+&lt;/persistence&gt;
+       </code>
+              </pre></li>
+              <li><b><h3 class="font1">Configuring JPA with as little XML as possible:-</h3></b> <pre class="language-java">
+                  <code>
+  public class MyJPADAO implements AutoCloseable {
+  private EntityManagerFactory emf=null;
+  EntityManager em=null;
+  {
+    Map&lt;String, String&gt; props = new HashMap&lt;&gt;();
+    props.put("hibernate.dialect", "org.hibernate.dialect.HSQLDialect");
+    props.put("hibernate.connection.driver_class", "org.hsqldb.jdbcDriver");
+    props.put("hibernate.connection.url", "jdbc:hsqldb:mem:myFavoriteDB");
+    props.put("hibernate.connection.username", "somebody");
+    props.put("hibernate.connection.password", "IWillNotTellYou");
+    props.put("hibernate.hbm2ddl.auto", "update");
+    props.put("hibernate.show_sql", "true");
+    emf = Persistence.createEntityManagerFactory("myFavoriteDBUnit", props);
+    em = emf.createEntityManager();
+  }
+
+  @Override
+  public void close() throws Exception {
+    if (null != em) em.close();
+    if (null != em) emf.close();
+  }
+}
+         </code>
+                </pre></li>
+                <li><b><h3 class="font1">The DAO class can be wrapped in try-with-resource-statements like below:-</h3></b> <pre class="language-java">
+                    <code>
+try (MyJPADAO dao = new MyJPADAO ()) {
+      dao.save();
+    }
+    try (MyJPADAO dao = new MyJPADAO ()) {
+      List result = dao.load();
+    }
+         </code>
+                  </pre></li>
+                  <li><b><h3 class="font1">Loading data, JPA style:-</h3></b> <pre class="language-java">
+                      <code>
+private List load() {
+    List resultList = em
+              .createQuery("from MyBusinessClass order by birthday desc")
+              .getResultList();
+    return resultList;
+  }
+             </code>
+                    </pre></li>
+                    <li><b><h3 class="font1">Saving data, JPA style:-</h3></b> <pre class="language-java">
+                        <code>
+private void save() {
+    EntityTransaction userTransaction = em.getTransaction();
+    userTransaction.begin();
+    MyBusinessClass demo = new MyBusinessClass();
+    entity.setName("Tester");
+    entity.setDate(new Date());
+    em.persist(entity);
+    userTransaction.commit();
+}
+               </code>
+                      </pre></li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+</script>
+{%endblock%}

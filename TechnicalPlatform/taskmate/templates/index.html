@@ -1,0 +1,114 @@
+ {% extends 'base.html' %}
+ {%load static%}
+ {%block body%}
+ <br>
+  <div class="container">
+   <img class="mySlides back-img" src="{%static 'images/img2.jpg'%}">
+   <img class="mySlides back-img" src="{%static 'images/img50.jpg'%}">
+   <img class="mySlides back-img" src="{%static 'images/img20.jpg'%}">
+  <img class="mySlides back-img" src="{%static 'images/img31.jpg'%}">
+  </div>
+  <br><br><hr>
+
+       <div class="home-articles max-width-1 m-auto font2">
+
+          <h1 class="text-center font1 underline">Welcome to Tech-Platform</h1><hr>
+          <p class="font1">Tech-Platform is an online learning platform with high-quality and effective content.</p>
+          <p class="font1">It contains lot of features and functionalities which makes you to explore the subject in depth .</p>
+
+           <a href="{% url 'login' %}" class="btn btn-primary font1 shadow-sm">Click here to start</a>
+       </div>
+       <br><hr>
+       <div class="container-fluid bg-dark">
+       <h3 class="text-white text-center font1">
+         Clear, concise, comprehensive, and practical with no fluff,
+       </h3>
+       <h3 class="text-white text-center font1">
+        packed with real-world examples, exercises and solutions.
+       </h3>
+       </div>
+
+
+         <hr>
+         <h1 class="text-center font1 underline">Our Platform Features</h1>
+         <hr><br>
+<div class="container">
+  <div class="card-deck">
+ <div class="card crd-ho" style="height: 280px;">
+   <div class="text-center">
+   <img src="https://ayasa.spayee.com/s/pages/assets/images/Learn-Anytime-Anywhere.png" style="height: 150px; width: 14rem;"  class="card-img-top" alt="...">
+   </div>
+   <div class="card-body">
+     <h5 class="card-title font1 underline">LEARN ANYTIME ANYWHERE</h5>
+     <p class="card-text font1">Learn at your own pace through our Responsive Website</p>
+   </div>
+
+ </div>
+ <div class="card crd-ho" style="height: 280px;">
+   <div class="text-center">
+   <img src="https://ayasa.spayee.com/s/pages/assets/images/Affordable-Fee-Structure.png" style="height: 150px; width: 14rem;"  class="card-img-top" alt="...">
+   </div>
+   <div class="card-body">
+     <h5 class="card-title font1 underline">No FEE STRUCTURE</h5>
+     <p class="card-text font1">Learn best from industries without any fee</p>
+   </div>
+
+ </div>
+ <div class="card crd-ho" style="height: 280px;">
+    <div class="text-center">
+    <img src="https://ayasa.spayee.com/s/pages/assets/images/Trusted%20Content.png" style="height: 150px; width: 14rem;"  class="card-img-top" alt="...">
+    </div>
+   <div class="card-body">
+     <h5 class="card-title font1 underline">TRUSTED CONTENT</h5>
+     <p class="card-text font1">Learn from comprehensive and interactive information</p>
+   </div>
+
+ </div>
+</div>
+<br>
+<hr>
+<h1 class="text-center font1 underline">Our Students</h1>
+<hr>
+<div class="container">
+<div class="card-deck">
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+
+    <div class="card-body">
+        <div class="text-center">
+          <h1 class="font1" style="color: #C70039;">100+</h1>
+          <h1 class="font1" style="color: #301259;">Universities</h1>
+
+        </div>
+
+    </div>
+
+  </div>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+
+    <div class="card-body">
+      <div class="text-center">
+        <h1 class="font1" style="color: #C70039;">50,000+</h1>
+        <h1 class="font1" style="color: #301259;">Learners</h1>
+      </div>
+    </div>
+
+  </div>
+  <div class="card shadow p-3 mb-5 bg-white rounded">
+
+    <div class="card-body">
+      <div class="text-center">
+        <h1 class="font1" style="color: #C70039;">10+</h1>
+        <h1 class="font1" style="color: #301259;">Countries</h1>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div><hr>
+<br>
+</div>
+
+
+
+
+ {%endblock%}

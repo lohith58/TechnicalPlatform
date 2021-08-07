@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Java Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/java/1"><i class="fas fa-arrow-circle-right">What is Java</i></a>
+     <a href="/java/2"><i class="fas fa-arrow-circle-right">JDK,JRE and JVM</i></a>
+     <a href="/java/3"><i class="fas fa-arrow-circle-right">JVM(Java Virtual Machine)Architecture</i></a>
+     <a href="/java/4"><i class="fas fa-arrow-circle-right">Java Inheritance</i></a>
+     <a href="/java/5"><i class="fas fa-arrow-circle-right">Java Interview Questions</i></a>
+     <a href="/java/6"><i class="fas fa-arrow-circle-right">Java JDBC(Java Database Conductivity)</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/java/1" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/java/3" class="btn btn-success font1 ml-2">Next</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Difference between JDK, JRE, and JVM :</h3>
+    <p class="font1">We must understand the differences between JDK, JRE, and JVM before proceeding further to Java. See the brief overview of JVM here.</p>
+    <p class="font1">If you want to get the detailed knowledge of Java Virtual Machine, move to the next page. Firstly, let's see the differences between the JDK, JRE, and JVM.</p>
+    <h3 class="font1 text-left underline">JVM :</h3>
+    <p class="font1">JVM (Java Virtual Machine) is an abstract machine. It is called a virtual machine because it doesn't physically exist. It is a specification that provides a runtime environment in which Java bytecode can be executed. It can also run those programs which are written in other languages and compiled to Java bytecode.</p>
+    <p class="font1">JVMs are available for many hardware and software platforms. JVM, JRE, and JDK are platform dependent because the configuration of each OS is different from each other. However, Java is platform independent. There are three notions of the JVM: specification, implementation, and instance.</p>
+    <p class="font1">The JVM performs the following main tasks:</p>
+    <ul>
+      <li>Loads code</li><li>Verifies code</li><li>Executes code</li><li>Provides runtime environment</li>
+    </ul>
+    <h3 class="font1 text-left underline">JRE :</h3>
+    <p class="font1">JRE is an acronym for Java Runtime Environment. It is also written as Java RTE. The Java Runtime Environment is a set of software tools which are used for developing Java applications. It is used to provide the runtime environment. It is the implementation of JVM. It physically exists. It contains a set of libraries + other files that JVM uses at runtime.</p>
+    <p class="font1">The implementation of JVM is also actively released by other companies besides Sun Micro Systems.</p>
+    <img class="text-center" src="{%static 'images/jre2.png'%}" alt="python application">
+    <h3 class="font1 text-left underline">JDK :</h3>
+    <p class="font1">JDK is an acronym for Java Development Kit. The Java Development Kit (JDK) is a software development environment which is used to develop Java applications and applets. It physically exists. It contains JRE + development tools.</p>
+    <p class="font1">JDK is an implementation of any one of the below given Java Platforms released by Oracle Corporation:</p>
+    <ul>
+      <li>Standard Edition Java Platform</li><li>Enterprise Edition Java Platform</li><li>Micro Edition Java Platform</li>
+    </ul>
+    <img class="text-center" src="{%static 'images/jdk2.png'%}" alt="python application">
+  </div>
+ <br><div class="container text-right">
+   <a href="/java/1" class="btn btn-success font1 mr-2">Previous</a>
+   <a href="/java/5" class="btn btn-success font1 ml-2">Next</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

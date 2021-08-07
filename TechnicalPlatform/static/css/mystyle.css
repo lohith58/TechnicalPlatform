@@ -1,0 +1,19 @@
+
+.max-width-1 {
+  max-width: 80vw;
+}
+.m-auto {
+  margin: auto;
+}
+.home-articles {
+  padding: 18px;
+  background-color: #CAE7DF;
+  margin-top: 23px;
+  position: relative;
+}
+.background-2 {
+  padding: 18px;
+  background-color: #F4ABAA;
+  margin-top: 23px;
+  position: relative;
+}

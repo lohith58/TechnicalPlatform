@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Java Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/java/1"><i class="fas fa-arrow-circle-right">What is Java</i></a>
+     <a href="/java/2"><i class="fas fa-arrow-circle-right">JDK,JRE and JVM</i></a>
+     <a href="/java/3"><i class="fas fa-arrow-circle-right">JVM(Java Virtual Machine)Architecture</i></a>
+     <a href="/java/4"><i class="fas fa-arrow-circle-right">Java Inheritance</i></a>
+     <a href="/java/5"><i class="fas fa-arrow-circle-right">Java Interview Questions</i></a>
+     <a href="/java/6"><i class="fas fa-arrow-circle-right">Java JDBC(Java Database Conductivity)</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/java/2" class="btn btn-success font1">Next</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">What is Java :</h3>
+    <p class="font1">Java is a programming language and a platform. Java is a high level, robust, object-oriented and secure programming language.</p>
+    <p class="font1">Java was developed by Sun Microsystems (which is now the subsidiary of Oracle) in the year 1995. James Gosling is known as the father of Java. Before Java, its name was Oak. Since Oak was already a registered company, so James Gosling and his team changed the Oak name to Java.</p>
+    <p class="font1"><strong>platform</strong>Any hardware or software environment in which a program runs, is known as a platform. Since Java has a runtime environment (JRE) and API, it is called a platform.</p>
+    <p class="font1">Let's have a quick look at Java programming example. A detailed description of Hello Java example is available in next page.</p>
+    <pre class="language-java">
+        <code>
+    class Simple{
+        public static void main(String args[]){
+         System.out.println("Hello Java");
+        }
+    }
+ </code>
+      </pre>
+    <h3 class="font1 underline">Types of Java Applications :</h3>
+    <p class="font1">There are mainly 4 types of applications that can be created using Java programming:</p>
+    <p class="font1"><strong>Standalone Application :</strong>Standalone applications are also known as desktop applications or window-based applications. These are traditional software that we need to install on every machine. Examples of standalone application are Media player, antivirus, etc. AWT and Swing are used in Java for creating standalone applications.</p>
+    <p class="font1"><strong>Web Application :</strong>An application that runs on the server side and creates a dynamic page is called a web application. Currently, Servlet, JSP, Struts, Spring, Hibernate, JSF, etc. technologies are used for creating web applications in Java.</p>
+    <p class="font1"><strong>Enterprise Application :</strong>An application that is distributed in nature, such as banking applications, etc. is called enterprise application. It has advantages of the high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.</p>
+    <p class="font1"><strong>Mobile Application :</strong>An application which is created for mobile devices is called a mobile application. Currently, Android and Java ME are used for creating mobile applications.</p>
+    <h3 class="font1 underline">Java Platforms / Editions :</h3>
+    <p class="font1">There are 4 platforms or editions of Java:</p>
+    <p class="font1"><strong>Java SE (Java Standard Edition)</strong></p>
+    <p class="font1">It is a Java programming platform. It includes Java programming APIs such as java.lang, java.io, java.net, java.util, java.sql, java.math etc. It includes core topics like OOPs, String, Regex, Exception, Inner classes, Multithreading, I/O Stream, Networking, AWT, Swing, Reflection, Collection, etc.</p>
+    <p class="font1"><strong>Java EE (Java Enterprise Edition)</strong></p>
+    <p class="font1">It is an enterprise platform which is mainly used to develop web and enterprise applications. It is built on the top of the Java SE platform. It includes topics like Servlet, JSP, Web Services, EJB, JPA, etc.</p>
+    <p class="font1"><strong>Java ME (Java Micro Edition)</strong></p>
+     <p class="font1">It is a micro platform which is mainly used to develop mobile applications.</p>
+    <p class="font1"><strong>JavaFX</strong></p>
+    <p class="font1">It is used to develop rich internet applications. It uses a light-weight user interface API.</p>
+    <h3 class="font1 underline">Prerequisite :</h3>
+    <p class="font1">To learn Java, you must have the basic knowledge of C/C++ programming language.</p>
+</div>
+ <br><div class="container text-right">
+    <a href="/java/2" class="btn btn-success font1">Next</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

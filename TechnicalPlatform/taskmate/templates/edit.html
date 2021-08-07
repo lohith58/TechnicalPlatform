@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{%block title%}TechPlatform-Schedule(edit){%endblock%}
+{%block body%}
+   <div class="container">
+     <br><br>
+     {%if task_obj.manager == request.user%}
+     <form method="post" class="row">
+       {%csrf_token%}
+       <label class='col-lg-2'></label>
+       <input type="text" class="form-control col-lg-6 mr-2" name='task' placeholder="{{task_obj.task}}" value="{{task_obj.task}}">
+       <input type="hidden" name='done' value="{{task_obj.done}}">
+       <button type="submit" class="btn btn-primary col-lg-2 ml-2">Update-Task</button>
+     </form>
+     {%else%}
+        <h1 class="font1">Access Restricted ,You are not allowed to access this page !</h1>
+     {%endif%}
+   </div>
+   <br><br><br><br><br><br><br><br><br><br><br><br>
+{%endblock%}

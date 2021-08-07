@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block title%}TechnicalPlatform-Logout{%endblock%}
+
+
+{%block body%}
+<div class="container">
+  <br>
+  <h1 class="font1">Thanks for spending some quality time with the Web site today. Hope you learned something new today.</h1>
+  <br><br><br>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="font1">Wanna login again ?<a href="{% url "login" %}">Click here to check this out</a></h2>
+      <h2 class="font1">Wanna go to home ?<a href="{% url "index"%}">Click here to check this out</a></h2>
+    </div>
+  </div>
+
+  <br><br><br><br>
+ </div>
+{%endblock%}

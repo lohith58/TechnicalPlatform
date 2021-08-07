@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Python(cheatsheet){%endblock%}
+{%block body%}
+<br>
+        <div class="text-white bg-dark">
+          <div class="container text-center">
+            <h2 class="font1"><span class="logo"><img src="{%static 'images/copy.png'%}" alt=""></span>Python Cheat Sheet</h2>
+            <h2 class="font1">refer the content quickly and copy code snippets if necessary !</h2>
+          </div>
+        </div>
+
+<br>
+<div class="container">
+		<ul>
+      <li><b><h3 class="font1">Python Basics:-</h3></b> <pre class="language-python">
+          <code>
+>>> 2 + 3 * 6
+20
+>>> (2 + 3) * 6
+30
+>>> 2 ** 8
+256
+>>> 23 // 7
+3
+>>> 23 % 7
+2
+>>> (5 - 1) * ((7 + 1) / (3 - 1))
+16.0
+ </code>
+        </pre></li>
+        <li><b><h3 class="font1">String Concatenation and Replication:-</h3></b> <pre class="language-python">
+            <code>
+>>> 'Alice'+'Bob'
+'AliceBob'
+>>> 'Alice' * 5
+'AliceAliceAliceAliceAlice'
+   </code>
+          </pre></li>
+          <li><b><h3 class="font1">Variables:-</h3></b> <pre class="language-python">
+              <code>
+>>> spam = 'Hello'
+>>> spam
+'Hello'
+a = 1  # initialization
+
+     </code>
+            </pre></li>
+            <li><b><h3 class="font1">Comments:-</h3></b> <pre class="language-python">
+                <code>
+# This is a comment
+
+# This is a
+# multiline comment
+def foo():
+    """
+    This is a function docstring
+    You can also use:
+    ''' Function Docstring '''
+    """
+       </code>
+              </pre></li>
+              <li><b><h3 class="font1">The print() Function:-</h3></b> <pre class="language-python">
+                  <code>
+>>> print('Hello world!')
+Hello world!
+>>> a = 1
+>>> print('Hello world!', a)
+Hello world! 1
+
+       </code>
+                </pre></li>
+                <li><b><h3 class="font1">The input() Function:-</h3></b> <pre class="language-python">
+                    <code>
+>>> print('What is your name?')   # ask for their name
+>>> myName = input()
+>>> print('It is good to meet you, {}'.format(myName))
+What is your name?
+Al
+It is good to meet you, Al
+           </code>
+                  </pre></li>
+                  <li><b><h3 class="font1">The len() Function:-</h3></b> <pre class="language-python">
+                      <code>
+>>> len('hello')
+5
+>>> a = [1, 2, 3]
+>>> if a:
+>>>     print("the list is not empty!")
+           </code>
+                    </pre></li>
+                    <li><b><h3 class="font1">The str(), int(), and float() Functions:-</h3></b> <pre class="language-python">
+                        <code>
+>>> str(29)
+'29'
+>>> print('I am {} years old.'.format(str(29)))
+I am 29 years old.
+>>> str(-3.14)
+'-3.14'
+>>> int(7.7)
+7
+>>> int(7.7) + 1
+8
+               </code>
+                      </pre></li>
+                      <li><b><h3 class="font1">if,else and elif Statements:-</h3></b> <pre class="language-python">
+                          <code>
+if name == 'Alice':
+    print('Hi, Alice.')
+
+
+name = 'Bob'
+if name == 'Alice':
+    print('Hi, Alice.')
+else:
+    print('Hello, stranger.')
+
+
+name = 'Bob'
+age = 5
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age lt; 12:
+    print('You are not Alice, kiddo.')
+
+
+name = 'Bob'
+age = 30
+if name == 'Alice':
+    print('Hi, Alice.')
+elif age lt; 12:
+    print('You are not Alice, kiddo.')
+else:
+    print('You are neither Alice nor a little kid.')
+
+
+                 </code>
+                        </pre></li>
+                        <li><b><h3 class="font1">While,for loops with beak,continue and range():-</h3></b> <pre class="language-python">
+                            <code>
+spam = 0
+while spam < 5:
+    print('Hello, world.')
+    spam = spam + 1
+
+while True:
+    print('Please type your name.')
+    name = input()
+    if name == 'your name':
+        break
+print('Thank you!')
+
+
+while True:
+    print('Who are you?')
+    name = input()
+    if name != 'Joe':
+        continue
+    print('Hello, Joe. What is the password? (It is a fish.)')
+    password = input()
+    if password == 'swordfish':
+        break
+print('Access granted.')
+
+>>> print('My name is')
+>>> for i in range(5):
+>>>     print('Jimmy Five Times ({})'.format(str(i)))
+My name is
+Jimmy Five Times (0)
+Jimmy Five Times (1)
+Jimmy Five Times (2)
+Jimmy Five Times (3)
+Jimmy Five Times (4)
+                   </code>
+                          </pre></li>
+                          <li><b><h3 class="font1">Importing Modules:-</h3></b> <pre class="language-python">
+                              <code>
+import random
+for i in range(5):
+    print(random.randint(1, 10))
+
+
+import random, sys, os, math
+from random import *
+
+
+import sys
+while True:
+    print('Type exit to exit.')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('You typed {}.'.format(response))
+
+                     </code>
+                            </pre></li>
+                            <li><b><h3 class="font1">Functions:-</h3></b> <pre class="language-python">
+                                <code>
+>>> def hello(name):
+>>> print('Hello {}'.format(name))
+>>>
+>>> hello('Alice')
+>>> hello('Bob')
+Hello Alice
+Hello Bob
+
+
+import random
+def getAnswer(answerNumber):
+    if answerNumber == 1:
+        return 'It is certain'
+    elif answerNumber == 2:
+        return 'It is decidedly so'
+    elif answerNumber == 3:
+        return 'Yes'
+    elif answerNumber == 4:
+        return 'Reply hazy try again'
+    elif answerNumber == 5:
+        return 'Ask again later'
+    elif answerNumber == 6:
+        return 'Concentrate and ask again'
+    elif answerNumber == 7:
+        return 'My reply is no'
+    elif answerNumber == 8:
+        return 'Outlook not so good'
+    elif answerNumber == 9:
+        return 'Very doubtful'
+
+r = random.randint(1, 9)
+fortune = getAnswer(r)
+print(fortune)
+                          </code>
+                              </pre></li>
+                              <li><b><h3 class="font1">Exception Handling:-</h3></b> <pre class="language-python">
+                                  <code>
+>>> def spam(divideBy):
+>>>     try:
+>>>         return 42 / divideBy
+>>>     except ZeroDivisionError as e:
+>>>         print('Error: Invalid argument: {}'.format(e))
+>>>
+>>> print(spam(2))
+>>> print(spam(12))
+>>> print(spam(0))
+>>> print(spam(1))
+21.0
+3.5
+Error: Invalid argument: division by zero
+None
+42.0
+
+                              </code>
+                                </pre></li>
+    </ul>
+</div>
+<script type="text/javascript">
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+</script>
+{%endblock%}

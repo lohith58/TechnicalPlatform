@@ -1,0 +1,347 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java(cheatsheet){%endblock%}
+{%block body%}
+<br>
+        <div class="text-white bg-dark">
+          <div class="container text-center">
+            <h2 class="font1"><span class="logo"><img src="{%static 'images/copy.png'%}" alt=""></span>Java Cheat Sheet for quick reference</h2>
+            <h2 class="font1">copy code snippets if necessary !</h2>
+          </div>
+        </div>
+
+<br>
+<div class="container">
+		<ul>
+      <li><b><h3 class="font1">Java IDE and Executing Code:-</h3></b> <pre class="language-java">
+          <code>
+$ java [file_name].java
+$ java [file_name]
+</code>
+        </pre></li>
+        <li><b><h3 class="font1">Variables in Java:-</h3></b> <pre class="language-java">
+            <code>
+class TestVariables
+{
+int data = 20; // instance variable
+static int number = 10; //static variable
+void someMethod()
+{
+int num = 30; //local variable
+}
+}
+   </code>
+          </pre></li>
+          <li><b><h3 class="font1">Methods in Java:-</h3></b> <pre class="language-java">
+              <code>
+type name (parameter list)
+{
+//body of the method
+//return value (only if type is not void)
+}
+   </code>
+            </pre></li>
+            <li><b><h3 class="font1">Conditional Statements in Java:-</h3></b> <pre class="language-java">
+                <code>
+class TestIfElse
+{
+public static void main(String args[])
+{
+int percent = 75;
+if(percent >= 75
+{
+System.out.println("Passed");
+}
+else
+{
+System.out.println("Please attempt again!");
+}
+}
+}
+     </code>
+              </pre></li>
+              <li><b><h3 class="font1"> Switch:-</h3></b> <pre class="language-java">
+                  <code>
+class TestSwitch
+{
+public static void main(String args[])
+{
+int weather = 0;
+switch(weather)
+{
+case 0 :
+System.out.println("Sunny");
+break;
+case 1 :
+System.out.println("Rainy");
+break;
+case 2 :
+System.out.println("Cold");
+break;
+case 3 :
+System.out.println("Windy");
+break;
+default :
+System.out.println("Pleasant");
+}
+}
+}
+       </code>
+                </pre></li>
+                <li><b><h3 class="font1">Loops in Java:-</h3></b> <pre class="language-java">
+                    <code>
+class TestForLoop
+{
+public static void main (String args[])
+{
+for(int i=0;i<=5;i++)
+System.out.println("*");
+}
+}
+
+
+{
+public static void main (String args[])
+{
+int i = 1;
+while(i<=10)
+{
+System.out.println(i);
+i++;
+}
+}
+
+
+}class TestDoWhileLoop
+{
+public static void main (String args[])
+{
+int i = 1;
+do
+{
+System.out.println(i);
+i++;
+}
+while(i<=10);
+}
+}
+           </code>
+                  </pre></li>
+                  <li><b><h3 class="font1">Java OOPS Concepts:-</h3></b> <pre class="language-java">
+                      <code>
+class A
+{
+int i, j;
+void showij() {
+System.out.println("i and j: " + i + " " + j);
+}
+}
+// Create a subclass by extending class A.
+class B extends A {
+int k;
+void showk() {
+System.out.println("k: " + k);
+}
+void sum() {
+System.out.println("i+j+k: " + (i+j+k));
+}
+}
+class SimpleInheritance {
+public static void main(String args[]) {
+A objA = new A();
+B objB = new B();
+// The superclass may be used by itself
+objA.i = 10;
+objA.j = 20;
+System.out.println("Contents of objA: ");
+objA.showij();
+System.out.println();
+
+/* The subclass can access to all public members of
+its superclass. */
+
+objB.i = 7;
+objB.j = 8;
+objB.k = 9;
+System.out.println("Contents of objB: ");
+objB.showij();
+objB.showk();
+System.out.println();
+System.out.println("Sum of i, j and k in objB:");
+objB.sum();
+}
+}
+             </code>
+                    </pre></li>
+                    <li><b><h3 class="font1">Polymorphism:-</h3></b> <pre class="language-java">
+                        <code>
+class ParentMath
+{
+void area()
+{
+int a =2;
+System.out.printf("Area of Square with side 2 = %d %n", a * a);
+System.out.println();
+}
+}
+class ChildMath extends ParentMath
+{
+void area()
+{
+int a =4;
+System.out.printf("Area of Square with side 4= %d %n", a * a);
+}
+public static void main (String args[])
+{
+ChildMath obj = new ChildMath();
+obj.area();
+}
+}
+               </code>
+                      </pre></li>
+                      <li><b><h3 class="font1">Abstract Class:-</h3></b> <pre class="language-java">
+                          <code>
+abstract class A {
+abstract void callme();
+// concrete methods are still allowed in abstract classes
+void callmetoo() {
+System.out.println("This is a concrete method.");
+}
+}
+class B extends A {
+void callme() {
+System.out.println("B's implementation of callme.");
+}
+}
+class Abstract {
+public static void main(String args[]) {
+B b = new B();
+b.callme();
+b.callmetoo();
+}
+}
+                 </code>
+                        </pre></li>
+                        <li><b><h3 class="font1">Interfaces:-</h3></b> <pre class="language-java">
+                            <code>
+interface Area
+{
+final static float pi = 3.14F;
+float compute(float x , float y);
+}
+class Rectangle implements Area
+{
+public float compute (float x, float y)
+{
+return (x*y);
+}
+}
+class Circle implements Area
+{
+public float compute (float x, float y)
+{
+return (pi * x * x);
+}
+}
+class InterfaceTest
+{
+public static void main (String args[])
+{
+float x = 2.0F;
+float y = 6.0F;
+Rectangle rect = new Rectangle(); //creating object
+Circle cir = new Circle();
+float result1 = rect.compute(x,y);
+System.out.println("Area of Rectangle = "+ result1);
+float result2 = cir.compute(x,y);
+System.out.println("Area of Circle = "+ result2);
+}
+}
+                   </code>
+                          </pre></li>
+                          <li><b><h3 class="font1">Constructors in Java:-</h3></b> <pre class="language-java">
+                              <code>
+class Box {
+double width;
+double height;
+double depth;
+// This is the constructor for Box.
+Box() {
+System.out.println("Constructing Box");
+width = 10;
+height = 10;
+depth = 10;
+}
+// compute and return volume
+double volume() {
+return width * height * depth;
+}
+}
+class BoxVol {
+public static void main(String args[]) {
+// declare, allocate, and initialize Box objects
+Box mybox1 = new Box();
+Box mybox2 = new Box();
+double vol;
+vol = mybox1.volume();
+System.out.println("Volume is " + vol);
+vol = mybox2.volume();
+System.out.println("Volume is " + vol);
+}
+}
+                   </code>
+                            </pre></li>
+                            <li><b><h3 class="font1">Arrays in Java:-</h3></b> <pre class="language-java">
+                                <code>
+import java.util.Scanner;
+class SingleArray
+{
+public static void main(String args[])
+{
+int len = 0;
+//declaration
+int [] numbers = ;
+Scanner s = new Scanner(System.in);
+System.out.println("The elements in the array are: ");
+for(int i=0;i&lt;numbers.length;i++)
+{
+System.out.print(numbers[i] + " ");
+}
+System.out.println();
+System.out.println("The sum of elements in the array are: ");
+int sum =0;
+for(int i=0;i&lt;numbers.length;i++)
+{
+sum = sum + numbers[i];
+}
+System.out.println("Sum of elements = " + sum);
+}
+}
+                       </code>
+                              </pre></li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+</script>
+{%endblock%}

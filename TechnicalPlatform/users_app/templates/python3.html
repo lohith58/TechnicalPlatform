@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Python Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Python Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/python/1"><i class="fas fa-arrow-circle-right">Basic Syntax of Python</i></a>
+     <a href="/python/2"><i class="fas fa-arrow-circle-right">Applications of Python</i></a>
+     <a href="/python/3"><i class="fas fa-arrow-circle-right">Datatypes in Python</i></a>
+     <a href="/python/4"><i class="fas fa-arrow-circle-right">Python Interview Questions</i></a>
+     <a href="/python/5"><i class="fas fa-arrow-circle-right">Python Sending Email using SMTP</i></a>
+     <a href="/python/6"><i class="fas fa-arrow-circle-right">Top Python Frameworks List</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/python/2" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/4" class="btn btn-success font1 ml-2">Next</a>
+</div>
+ <div class="container background-4">
+ <h3 class="font1 text-left underline">Python Data Structures :-</h3>
+ <p class="font1">Data structures are referred which can hold some data together or we say that they are used to store the data in organized way. Python provides built-in data structures such as list, tuple, dictionary, and set. We can perform complex tasks using data structures.</p>
+ <h3 class="font1 text-left underline">Python List</h3>
+ <p class="font1">Python list holds the ordered collection of items. We can store a sequence of items in a list. Python list is mutable which means it can be modified after its creation. The items of lists are enclosed within the square bracket [] and separated by the comma. Let's see the example of list.</p>
+ <pre class="language-python">
+     <code>
+     L1 = ["John", 102, "USA"]
+     L2 = [1, 2, 3, 4, 5, 6]
+</code>
+   </pre>
+ <p class="font1">If we try to print the type of L1, L2, and L3 using type() function then it will come out to be a list.</p>
+ <pre class="language-python">
+     <code>
+       print(type(L1))
+       print(type(L2))
+</code>
+   </pre>
+  <h4 class="font1">The Output:</h4>
+  <pre class="language-python">
+      <code>
+        &lt;class 'list'&gt;
+        &lt;class 'list'&gt;
+</code>
+    </pre>
+<h3 class="font1 text-left underline">Python Tuple</h3>
+<p class="font1">Python Tuple is used to store the sequence of immutable Python objects. The tuple is similar to lists since the value of the items stored in the list can be changed, whereas the tuple is immutable, and the value of the items stored in the tuple cannot be changed.</p>
+<p class="font1"><strong>Tuple can be defined as follows</strong></p>
+<pre class="language-python">
+    <code>
+tup = ("Apple", "Mango" , "Orange" , "Banana")
+print(type(tup))
+print(tup)
+</code>
+  </pre>
+<p class="font1"><strong>OutPut :</strong></p>
+<pre class="language-python">
+    <code>
+     &lt;class 'tuple'&gt;
+     ('Apple', 'Mango', 'Orange', 'Banana')
+</code>
+  </pre>
+<p class="font1">If we try to add new to the tuple, it will throw an error.</p>
+<p class="font1"><strong>Example :</strong></p>
+<pre class="language-python">
+    <code>
+tup = ("Apple", "Mango" , "Orange" , "Banana")
+ tup[2] = "Papaya"
+ print(tup)
+</code>
+  </pre>
+<p class="font1"><strong>OutPut :</strong></p>
+<pre class="language-python">
+    <code>
+  Traceback (most recent call last):
+  File "C:/Users/DEVANSH SHARMA/PycharmProjects/Hello/gamewithturtle.py", line 3, in
+    tup[2] = "Papaya"
+TypeError: 'tuple' object does not support item assignment
+</code>
+  </pre>
+<p class="font1">The above program throws an error because tuples are immutable type. To learn more about tuple, visit the Python Tuples.</p>
+<h3 class="font1 text-left underline">Python String</h3>
+<p class="font1">Python string is a sequence of characters. It is a collection of the characters surrounded by single quotes, double quotes, or triple quotes. It can also define as collection of the Unicode characters. We can create a string as follows.</p>
+<pre class="language-python">
+    <code>
+    # Creating string using double quotes
+   str1 = "Hi Python"
+   print(str1)
+   # Creating string using single quotes
+   str1 = 'Hi Python'
+   print(str1)
+   # Creating string using triple quotes
+   str1 = '''Hi Python'''
+   print(str1)
+</code>
+  </pre>
+<p class="font1"><strong>OutPut:</strong></p>
+<pre class="language-python">
+    <code>
+ Hi Python
+ Hi Python
+ Hi Python
+</code>
+  </pre>
+<h3 class="font1 text-left underline">Python String</h3>
+<p class="font1">Python Dictionary is a most efficient data structure and used to store the large amount of data. It stores the data in the key-value pair format. Each value is stored corresponding to its key.</p>
+<p class="font1">Keys must be a unique and value can be any type such as integer, list, tuple, etc.</p>
+<p class="font1">It is a mutable type; we can reassign after its creation. Below is the example of creating dictionary in Python.</p>
+<p class="font1"><strong>Example :</strong></p>
+<pre class="language-python">
+    <code>
+      employee = {"Name": "John", "Age": 29, "salary":250000,"Company":"GOOGLE"}
+      print(type(employee))
+      print("printing Employee data .... ")
+      print(employee)
+</code>
+  </pre>
+<p class="font1"><strong>OutPut :</strong></p>
+<pre class="language-python">
+    <code>
+      &lt;class 'dict'&gt;
+ Printing Employee data ....
+ {'Name': 'John', 'Age': 29, 'salary': 250000, 'Company': 'GOOGLE'}
+</code>
+  </pre>
+<p class="font1">The empty curly braces {} are used to create empty dictionary. To learn more, visit the complete tutorial of the dictionary.</p>
+</div><br>
+<div class="container text-right">
+   <a href="/python/2" class="btn btn-success font1 mr-2">Previous</a>
+   <a href="/python/4" class="btn btn-success font1 ml-2">Next</a>
+</div><br>
+<script type="text/javascript">
+  var mybutton = document.getElementById("myBtn");
+  window.onscroll = function() {scrollFunction()};
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+{%endblock%}

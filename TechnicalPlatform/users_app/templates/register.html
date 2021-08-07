@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{%block title%}TechnicalPlatform-Registration{%endblock%}
+
+
+{%block body%}
+<div class="container">
+  <br>
+  <h2 class="font1 col-6 underline">Register on TechnicalPlatform:-</h2>
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong class="font1">{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{%endfor%}
+{%endif%}
+
+  <form  method="post" class="mt-5 mb-2 col-6">
+     {%csrf_token%}
+     {{register_form|crispy}}
+     <button type="submit" name="button" class="btn btn-primary font1 mb-5">Register</button>
+  </form>
+
+</div>
+{%endblock%}

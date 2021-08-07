@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Explore-Theory{%endblock%}
+{%block body%}
+<br><br><br>
+<div class="container home-articles max-width-1 m-auto font2">
+
+    <div class="row">
+       <div class="col">
+         <h3 class="font1 underline">Cheat Sheets:-</h3>
+         <ul>
+            <li class="font1"><a href="{% url 'pythoncheat' %}"</a>Python</li>
+            <li class="font1"><a href="{% url 'javacheat' %}"</a>Java</li>
+            <li class="font1"><a href="{% url 'djangocheat' %}"</a>Django</li>
+            <li class="font1"><a href="{% url 'springcheat' %}"</a>Spring</li>
+            <li class="font1"><a href="{% url 'hibernatecheat' %}"</a>Hibernate</li>
+       </ul>
+       </div>
+       <div class="col">
+           <h3 class="font1 underline">Explore theory:-</h3>
+           <ul>
+             <li class="font1"><a href="/python/1"</a>Python</li>
+             <li class="font1"><a href="/java/1"</a>Java</li>
+           </ul>
+      </div>
+    </div>
+  </div>
+<br><br>
+<br>
+{%endblock%}

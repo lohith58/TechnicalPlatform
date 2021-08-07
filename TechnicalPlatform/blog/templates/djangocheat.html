@@ -1,0 +1,371 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Django(cheatsheet){%endblock%}
+{%block body%}
+<br>
+        <div class="text-white bg-dark">
+          <div class="container text-center">
+            <h2 class="font1"><span class="logo"><img src="{%static 'images/copy.png'%}" alt=""></span>Django Cheat Sheet</h2>
+            <h2 class="font1">refer the content quickly and copy code snippets if necessary !</h2>
+          </div>
+        </div>
+
+<br>
+<div class="container">
+		<ul>
+			<li><b><h3 class="font1">Start a new Django Project:-</h3></b> <pre class="language-python">
+					<code>
+# Create et access project folder
+~$  mkdir project_name
+~$  cd project_name
+
+# Create Python virtual env
+~$  python3 -m venv venv
+
+# Activate virtual env
+~$  source venv/bin/activate
+
+# If you want to deactivate virtual env
+~$  deactivate
+
+# Install django
+~$  pip install django~=3.1.0
+
+# New django project (from project_name folder)
+~$  django-admin startproject config .
+
+# Create app (from project_name folder)
+~$  python manage.py startapp app_name</code>
+				</pre></li>
+			<li><b><h3 class="font1">Makemigrations:-</h3></b> <pre class="language-python">
+					<code>
+~$  python manage.py makemigrations </code>
+				</pre></li>
+			<li> <b><h3 class="font1">Migrate:-</h3></b> <pre class="language-python">
+					<code>
+~$  python manage.py migrate</code>
+				</pre></li>
+			<li><b><h3 class="font1">Create superuser for authenficiation/admin panel:-</h3></b> <pre class="language-python">
+					<code>
+~$  python manage.py createsuperuser</code>
+				</pre></li>
+			<li><b><h3 class="font1">Start server:-</h3></b><pre class="language-python">
+					<code>
+~$  python manage.py runserver  => ex.  http://127.0.0.1:8000</code>
+				</pre></li>
+			<li><b><h3 class="font1">Requirements:-</h3></b> <pre class="language-python">
+					<code>
+# Create a requirements file that contain all your projet dependencies
+~$  pip freeze > requirements.txt
+
+# Install your project requirements (if a requirements file exist)
+~$  pip install -r requirements.txt
+         </code>
+				</pre></li>
+			<li><b><h3 class="font1">Other commands:-</h3></b>
+				   <pre class="language-python">
+					<code>
+# Django shell (Run projet code direclty)
+~$ python manage.py shell
+
+# example of code to run in the shell:
+>>> from app_name.models import User
+>>> user1 = User.objects.first()
+
+# Prepare static folders for production
+$ python manage.py collectstatic
+
+# Take all data from app blog and export in json
+python manage.py dumpdata blog >myapp.json
+
+# Take all data in json file and import in app data table
+python manage.py loaddata myapp.json
+					</code>
+				</pre></li>
+			<li><b><h3 class="font1">Project config:-</h3></b>
+				 <pre class="language-python">
+					<code>
+            # Add app to settings.py
+INSTALLED_APPS = [ … , 'app_name' ]
+
+# App templates folder
+create folder appfolder/templates/appname
+
+# Project templates folder:
+create folder projectname/templates
+
+# settings.py template config
+Project templates settings.py:
+    TEMPLATES = [
+        { …
+                'DIRS': [BASE_DIR / 'templates', ],
+        … }
+
+# Create Static folder:
+project_name\static\
+
+# Static folder (settings.py):
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [ BASE_DIR / 'static' ]
+STATIC_ROOT = 'static_root'
+
+# To use PostgresSQL
+# pip install psycopg2
+# settings.py
+DATABASE = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'admin',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '5432'
+          </code>
+				</pre></li>
+			<li><b><h3 class="font1">Create data models:-</h3></b><pre class="language-python">
+					<code>
+# models.py
+# The id fields is automaticly created by Django for each model that why it's not show below
+
+from django.db import models
+
+class Customer(models.Model)
+    name = models.Charfield('Customer', max_length=120)
+    age = models.IntegerField()
+    note = models.TextField(blank=True, null = True)
+    email = models.EmailField(max_length=255, blank=True, null=True)
+    credit = models.FloatField(blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+# Select Field (return value, display value)
+    TYPE_CHOICES = (
+        ('Customer', 'Customer'),
+        ('Supplier', 'Supplier'),
+        ('Student', 'Student'),
+    )
+
+    type = models.CharField(choices=TYPE_CHOICES)
+         </code>
+				</pre></li>
+        <li> <b><h3 class="font1">Model string representation:-</h3></b> <pre class="language-python">
+  					<code>
+              class Customer(models.Model):
+                  name = models.Charfield('Customer', max_length=120)
+                  age = models.IntegerField()
+
+                  def __str__(self):
+                      return self.name
+           </code>
+  				</pre></li>
+          <li> <b><h3 class="font1">Relationship between models:-</h3></b> <pre class="language-python">
+    					<code>
+# One-to-Many: (use double quotes if the entity is not yet declare) ex. "Supplier"
+supplier = models.ForeignKey(Supplier, blank=True, null=True, on_delete=models.CASCADE)
+
+# on_delete can be set to models.CASCADE, models.ST_DEFAULT or models.SET_NULL
+
+# Many-to-Many:
+tags = models.ManyToManyField(Tag, blank=True)
+
+# One to One
+User = models.OneToOneField(User, on_delete=models.CASCADE)
+
+# Overwrite save method
+def save(self, (*args, **kwargs):
+    if not self.slug:
+        self.slug = slugify(self.title)
+
+    super().save(*args, **kwargs)
+     </code>
+    				</pre></li>
+            <li> <b><h3 class="font1">Admin panel:-</h3></b> <pre class="language-python">
+      					<code>
+from .models import Blog
+admin.site.register(Blog)
+    </code>
+      				</pre></li>
+              <li> <b><h3 class="font1">Customize Admin Panel:-</h3></b> <pre class="language-python">
+        					<code>
+# Custom model Admin (admin.py):
+class BlogAdmin(admin.ModelAdmin)
+    fields = ("title", "description") # Fields to use for add/edit/show page
+    list_display = ("title", "description") # fields to display in search page
+    list_display_link = ("title") # fields that will be a link in search page
+    ordering("date_created",) # Ordering allowed in the search page
+    search_fields("title", "description") # Search fields allowed in the search page
+
+# Register app
+admin.site.register(Blog, BlogAdmin)
+         </code>
+        				</pre></li>
+                <li> <b><h3 class="font1">Routing:-</h3></b> <pre class="language-python">
+          					<code>
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+      path('admin/', admin.site.urls), # pre-created admin urls routes
+      path('', include('app_name.urls')) # include your app urls
+  ]
+</code>
+          				</pre></li>
+                  <li> <b><h5 class="font1">the 'include()' method allow to link another urls.py file created in your app folder (app_name/urls.py)</h5></b> <pre class="language-python">
+            					<code>
+from django.urls import path
+from . import views
+
+url patterns = [
+    path('posts', views.index, name='posts.index'),
+    path('posts/create/', views.create, name='posts.create',
+    path('posts/<int:id>/', views.show, name='posts.show'),
+    path('posts/<int:id>/edit/', views.edit, name='posts.edit'),
+    path('posts/<int:id>/delete/', views.delete, name='posts.delete'),
+]
+             </code>
+            				</pre></li>
+                    <li> <b><h3 class="font1">Static route:-</h3></b> <pre class="language-python">
+              					<code>
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+               </code>
+              				</pre></li>
+                      <li><b><h3 class="font1">Function Based Views:-</h3></b> <pre class="language-python">
+                					<code>
+# views.py
+from django.shortcuts import render, redirect
+from .models import Post
+from .forms import PostForm
+
+def index(request):
+    # Get all Posts
+    posts = Post.objects.all()
+
+    # Render app template with context
+    return render(request, 'appfolder/index.html', {'posts': posts})
+
+def show(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, 'appfolder/show.html', {'post': post})
+
+def create(request):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        # optionally we can access form data with form.cleaned_data['first_name']
+        post = form.save(commit=False)
+        post.user = request.user
+        post.save()
+        return redirect('/posts')
+
+    return render(request, 'appfolder/create.html', {'form': form)
+
+def edit(request, id):
+    post = Post.objects.get(id=id)
+    form = PostForm(request.POST or None, instance=post)
+    if form.is_valid():
+        form.save()
+        return redirect('/posts')
+
+    return render(request, 'appfolder/edit.html', {'form': form)
+
+def delete(request, id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('/posts')
+                  </code>
+                				</pre></li>
+                        <li><b><h3 class="font1">Class based Views:-</h3></b> <pre class="language-python">
+                  					<code>
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+
+class LandingPageView(TemplateView):
+    template_name = 'landing.html'
+
+    # Optional: Change context data dict
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Landing Page'
+        return context
+
+class PostsListView(ListView):
+    queryset = Post.objects.all()
+
+  # Optional
+    # context_object_name = "posts" (default: post_list)
+    # template_name = 'posts.html' (default: posts/post_list.html)
+
+class PostsDetailView(DetailView):
+    model = Post # object var in template
+
+  # Optional
+    # template_name = 'post.html' (default: posts/post_detail.html)
+
+
+class PostsCreateView(CreateView):
+    form_class = PostForm
+
+    template_name = 'posts/post_create.html' # no default value
+
+    def get_success_url(self):
+        return reverse('posts-list')
+
+    # Optional: Overwrite form data (before save)
+    def form_valid(self, form):
+        if self.request.user.is_authenticated:
+            from.instance.author = self.request.user
+
+        return super().form_valid(form)
+
+class PostsUpdateView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'posts/post_update.html'
+
+    def get_success_url(self):
+        return reverse('post-list')
+
+    # Optional: Change context data dict
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['submit_text'] = 'Update'
+        return context
+
+
+class PostsDeleteView(DeleteView):
+    model = Post
+    template_name = 'posts/post_delete.html'
+    success_url = reverse_lazy('posts-list')
+
+# Urls.py route declaration
+path('<int:pk>/update/', PostsUpdateView.as_view(), name='post-update')
+                 </code>
+                  				</pre></li>
+		</ul>
+	</div>
+  <script type="text/javascript">
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+  </script>
+
+{%endblock%}

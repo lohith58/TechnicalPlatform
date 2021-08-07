@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Python Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Python Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/python/1"><i class="fas fa-arrow-circle-right">Basic Syntax of Python</i></a>
+     <a href="/python/2"><i class="fas fa-arrow-circle-right">Applications of Python</i></a>
+     <a href="/python/3"><i class="fas fa-arrow-circle-right">Datatypes in Python</i></a>
+     <a href="/python/4"><i class="fas fa-arrow-circle-right">Python Interview Questions</i></a>
+     <a href="/python/5"><i class="fas fa-arrow-circle-right">Python Sending Email using SMTP</i></a>
+     <a href="/python/6"><i class="fas fa-arrow-circle-right">Top Python Frameworks List</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/python/4" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/6" class="btn btn-success font1 ml-2">Next</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Python Sending Email using SMTP :</h3>
+   <p class="font1">Simple Mail Transfer Protocol (SMTP) is used as a protocol to handle the email transfer using Python. It is used to route emails between email servers. It is an application layer protocol which allows to users to send mail to another. The receiver retrieves email using the protocols POP(Post Office Protocol) and IMAP(Internet Message Access Protocol).</p>
+   <img class="text-center" src="{%static 'images/python-sending-email.png'%}" alt="python application">
+  <p class="font1">When the server listens for the TCP connection from a client, it initiates a connection on port 587.</p>
+  <p class="font1">Python provides a smtplib module, which defines an the SMTP client session object used to send emails to an internet machine. For this purpose, we have to import the smtplib module using the import statement.</p>
+  <p class="font1">The SMTP object is used for the email transfer. The following syntax is used to create the smtplib object.</p>
+  <pre class="language-python">
+      <code>
+        import smtplib
+        sender_mail = 'sender@fromdomain.com'
+        receivers_mail = ['reciever@todomain.com']
+        message = """From: From Person %s
+        To: To Person %s
+        Subject: Sending SMTP e-mail
+        This is a test e-mail message.
+        """%(sender_mail,receivers_mail)
+        try:
+           smtpObj = smtplib.SMTP('localhost')
+           smtpObj.sendmail(sender_mail, receivers_mail, message)
+           print("Successfully sent email")
+        except Exception:
+           print("Error: unable to send email")
+</code>
+    </pre>
+  <h3 class="font1 text-left underline">Sending email from gmail :</h3>
+  <p class="font1">There are cases where the emails are sent using the Gmail SMTP server. In this case, we can pass Gmail as the SMTP server instead of using the localhost with the port 587.</p>
+  <pre class="language-python">
+      <code>
+smtpObj = smtplib.SMTP("gmail.com", 587)
+</code>
+    </pre>
+  <p class="font1">Here, we need to login to the Gmail account using Gmail user name and password. For this purpose, the smtplib provide the login() method, which accepts the username and password of the sender.This may make your Gmail ask you for access to less secure apps if you're using Gmail. You will need to turn this ON temporarily for this to work.</p>
+  </div>
+ <br><div class="container text-right">
+    <a href="/python/4" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/6" class="btn btn-success font1 ml-2">Next</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

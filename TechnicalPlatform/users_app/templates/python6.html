@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Python Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Python Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/python/1"><i class="fas fa-arrow-circle-right">Basic Syntax of Python</i></a>
+     <a href="/python/2"><i class="fas fa-arrow-circle-right">Applications of Python</i></a>
+     <a href="/python/3"><i class="fas fa-arrow-circle-right">Datatypes in Python</i></a>
+     <a href="/python/4"><i class="fas fa-arrow-circle-right">Python Interview Questions</i></a>
+     <a href="/python/5"><i class="fas fa-arrow-circle-right">Python Sending Email using SMTP</i></a>
+     <a href="/python/6"><i class="fas fa-arrow-circle-right">Top Python Frameworks List</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/python/5" class="btn btn-success font1 mr-2">Previous</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Top Python Frameworks| Python Framework List :</h3>
+    <p class="font1">In this tutorial, we will discuss Python's various important frameworks and their essential features. As we know, Python is a highly demanded and effective programming language, and it contains vast libraries and frameworks which for almost every technical domain.</p>
+    <p class="font1">The frameworks provide easiness while developing an application (or software) to developers. They offer automatic implementation of redundant tasks, reduce development time, and focus significantly on application logic rather than a common element.</p>
+    <p class="font1">Python comes with many frameworks, and each framework has its advantages and disadvantages.</p>
+    <p class="font1">All we need to analyze our project requirements to choose the appropriate frameworks.</p>
+    <p class="font1">There are mainly three types of Python frameworks, full-stack, micro-framework, and asynchronous. Before explaining each framework in detail, let's briefly introduce various kinds of Python frameworks.</p>
+    <h3 class="font1 text-left underline">Types of Python Frameworks:</h3>
+    <p class="font1">There are primarily three types of frameworks as follows.</p>
+    <p class="font1"><strong>1. Full-Stack framework</strong></p>
+    <p class="font1">These frameworks have all web development requirements such as form generators, form validation, and template layouts. These are the core features of a typical full-stack Framework.</p>
+    <p class="font1"><strong>2. Microframework</strong></p>
+    <p class="font1">Micro frameworks require lots of code and additional requirements manually. This kind of framework doesn't provide the data abstraction layer's facility, form validation, and specific tools and libraries.</p>
+    <p class="font1"><strong>3. Asynchronous Framework</strong></p>
+    <p class="font1">Asynchronous frameworks are gaining popularity recently allows for handling a large set of concurrent connections. It uses the asyncio library to run the process concurrently.</p>
+    <h3 class="font1 text-left underline">Django :</h3>
+    <p class="font1">Django is a full-stack Python framework. It is a most famous and beloved framework for developing rich web applications. It is gaining popularity bypassing the time. It ended up being one of the top 10 web development frameworks in 2021. It focuses on the DRY (Don'tRepeat Yourself) principle.</p>
+    <p class="font1">Django offers several built-in libraries and excellent features that are available for free to use. Django makes use of its ORM for mapping objects to database tables.</p>
+    <p class="font1">It offers database support as well as provides easiness to migrate from one database to another. However, it has inherent support of MySQL, PostgreSQL, SQLite, and Oracle database. We can also use the other database using via third-party drivers.</p>
+    <h3 class="font1 text-left underline">Flask :</h3>
+    <p class="font1">Flask is another popular Python micro-framework that comes under the BSD license. The Sinatra Ruby framework inspires it. This framework requires Jinja2 templates and the Werzeug WSGI toolkit.</p>
+    <p class="font1">It is lightweight and has a modular design. Flask is readily adaptable.</p>
+    <p class="font1">Using the Flask, developers can build a solid web application foundation from where it is possible to use any extension required. It is also compatible with Google App Engine.</p>
+    <h3 class="font1 text-left underline">Dash :</h3>
+    <p class="font1">It is a Python-based micro framework used to develop analytical web applications and popular among data scientists. It is suitable for those data scientists who aren't much into web development mechanics.</p>
+    <p class="font1">Dash's application can also run the webserver such as Flask and communication with JSON packets via HTTP requests.</p>
+    <p class="font1">ReactJS is used for rendering the frontend. We can extend the capabilities of Dash using Flask plugins. Applications developed using the Dash are rendered in a web browser and can be deployed to the server. These applications are cross-platform and mobile ready. Let's see the key features of the Dash framework.</p>
+  </div>
+ <br><div class="container text-right">
+    <a href="/python/5" class="btn btn-success font1 mr-2">Previous</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

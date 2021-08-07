@@ -1,0 +1,20 @@
+{%extends 'base2.html'%}
+{%block title%}TechPlatform-Share{%endblock%}
+{%block content_block%}
+   {%if sent%}
+   <div class="alert alert-dark alert-dismissible fade show" role="alert">
+       <strong>Email Sent Succesfully ! Blog with title : {{post.title}} shared by mail</strong>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+   </div>
+   {%endif%}
+
+   <h1 class="font1 underline">Wanna share blog with title : "{{post.title}}" through mail ?</h1>
+   <form method="post">
+     {{form.as_p}}
+     {%csrf_token%}
+     <input type="submit" class="btn btn-primary font1" value="Send Mail">
+   </form>
+
+{%endblock%}

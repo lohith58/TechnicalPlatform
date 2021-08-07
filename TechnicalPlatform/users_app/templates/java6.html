@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Java Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/java/1"><i class="fas fa-arrow-circle-right">What is Java</i></a>
+     <a href="/java/2"><i class="fas fa-arrow-circle-right">JDK,JRE and JVM</i></a>
+     <a href="/java/3"><i class="fas fa-arrow-circle-right">JVM(Java Virtual Machine)Architecture</i></a>
+     <a href="/java/4"><i class="fas fa-arrow-circle-right">Java Inheritance</i></a>
+     <a href="/java/5"><i class="fas fa-arrow-circle-right">Java Interview Questions</i></a>
+     <a href="/java/6"><i class="fas fa-arrow-circle-right">Java JDBC(Java Database Conductivity)</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+   <a href="/java/5" class="btn btn-success font1">Previous</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Java JDBC Tutorial :</h3>
+    <p class="font1">JDBC stands for Java Database Connectivity. JDBC is a Java API to connect and execute the query with the database. It is a part of JavaSE (Java Standard Edition). JDBC API uses JDBC drivers to connect with the database. There are four types of JDBC drivers:</p>
+    <ul>
+      <li>JDBC-ODBC Bridge Driver,</li><li>Native Driver,</li><li>Network Protocol Driver, and</li><li>Thin Driver</li>
+    </ul>
+    <p class="font1">We have discussed the above four drivers in the next chapter.</p>
+    <p class="font1">We can use JDBC API to access tabular data stored in any relational database. By the help of JDBC API, we can save, update, delete and fetch data from the database. It is like Open Database Connectivity (ODBC) provided by Microsoft</p>
+    <img class="text-center" src="{%static 'images/jdbc.png'%}" alt="python application">
+    <p class="font1">The current version of JDBC is 4.3. It is the stable release since 21st September, 2017. It is based on the X/Open SQL Call Level Interface. The java.sql package contains classes and interfaces for JDBC API. A list of popular interfaces of JDBC API are given below:</p>
+     <ul>
+       <li>Driver interface</li><li>Connection interface</li><li>Statement interface</li><li>PreparedStatement interface</li>
+       <li>CallableStatement interface</li><li>ResultSet interface</li><li>ResultSetMetaData interface</li><li>DatabaseMetaData interface</li><li>RowSet interface</li>
+     </ul>
+    <p class="font1">A list of popular classes of JDBC API are given below:</p>
+    <ul>
+      <li>DriverManager class</li><li>Blob class</li><li>Clob class</li><li>Types class</li>
+    </ul>
+    <h3 class="font1 text-left underline">Why Should We Use JDBC :</h3>
+    <p class="font1">Before JDBC, ODBC API was the database API to connect and execute the query with the database. But, ODBC API uses ODBC driver which is written in C language (i.e. platform dependent and unsecured). That is why Java has defined its own API (JDBC API) that uses JDBC drivers (written in Java language).</p>
+    <h3 class="font1 text-left underline">What is API:</h3>
+    <p class="font1">API (Application programming interface) is a document that contains a description of all the features of a product or software. It represents classes and interfaces that software programs can follow to communicate with each other. An API can be created for applications, libraries, operating systems, etc.</p>
+  </div>
+ <br><div class="container text-right">
+   <a href="/java/5" class="btn btn-success font1">Previous</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

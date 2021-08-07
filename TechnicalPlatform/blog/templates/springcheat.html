@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Spring(cheatsheet){%endblock%}
+{%block body%}
+<br>
+        <div class="text-white bg-dark">
+          <div class="container text-center">
+            <h2 class="font1"><span class="logo"><img src="{%static 'images/copy.png'%}" alt=""></span>Spring Cheat Sheet</h2>
+            <h2 class="font1">refer the content quickly and copy code snippets if necessary !</h2>
+          </div>
+        </div>
+
+<br>
+<div class="container">
+		<ul>
+      <li><b><h3 class="font1">What is Spring ?</h3></b> <pre class="language-html">
+          <code>
+.Open source
+.Light
+    Doesn't force to use an application server
+    Not invasive
+.Container
+    Application objects doesn't have to look for their dependencies
+    Handles objects life cycle
+.Framework
+    Ease integration and communication with third-party libraries
+ </code>
+        </pre></li>
+        <li><b><h3 class="font1">Minimal dependencies:-</h3></b> <pre class="language-html">
+            <code>
+&lt;dependency&gt;
+    &lt;groupId>org.springframework&lt;/groupId&gt;
+    &lt;artifactId>spring-context&lt;/artifactId&gt;
+&lt;/dependency&gt;
+   </code>
+          </pre></li>
+          <li><b><h3 class="font1">Application Configuration:-</h3></b> <pre class="language-java">
+              <code>
+@ComponentScan("fr.sii.cheatsheet.spring")
+public class MyApp {
+
+    public static void main(String[] args) {
+        ApplicationContext app = new AnnotationConfigApplicationContext(MyApp.class);
+
+        DummyService helloWorld = app.getBean(DummyService.class);
+        helloWorld.getMessage();
+    }
+}
+
+@Configuration
+public class MyAppConfig {
+  // @Bean, ...
+}
+     </code>
+            </pre></li>
+            <li><b><h3 class="font1">SPEL Spring Expression Language:-</h3></b> <pre class="language-java">
+                <code>
+Access a system properties
+@Value("#{ systemProperties['user.home'] }")
+private String defaultHome;
+
+Access a bean property
+@Value("#{myBean.myValue}")
+private String myValue;
+
+Parse a string
+@Value("#{myBean.myValue.substring(0,1)}")
+private String myValue;
+
+Operations
+@Value("#{myBean.myValue.length() > 2}")
+private String myValue;
+       </code>
+              </pre></li>
+              <li><b><h3 class="font1">Properties:-</h3></b> <pre class="language-java">
+                  <code>
+/**
+ * File 'foo.properties' loaded by Spring
+ */
+@Configuration
+@PropertySource("classpath:foo.properties")
+public class MyAppConfig {
+
+  /**
+   * Property max in file foo.properties.
+   */
+  private Integer max;
+
+}
+
+Use a property : @Value("${message}")
+@Value("${message:Default message}")
+private String message;
+         </code>
+                </pre></li>
+                <li><b><h3 class="font1">Customizing Bean:-</h3></b> <pre class="language-java">
+                    <code>
+Initialization method
+@PostConstruct
+
+Destroy method
+@PreDestroy
+           </code>
+                  </pre></li>
+                  <li><b><h3 class="font1">Dependency Injection:-</h3></b> <pre class="language-java">
+                      <code>
+Define a bean : @Bean
+@Configuration
+public class MyAppConfig {
+  @Bean
+  public DummyService dummyService(){
+    return new DummyServiceImpl();
+  }
+}
+
+Define a bean : @Component
+@Component specializations :
+     @Service : Heart of an app
+     @Repository : Handles data persistence
+     @Controller : Handles requests and reponses
+
+@Component
+public class DummyServiceImpl implements DummyService {
+}
+
+Dependency injection : @Autowired
+@Component
+public class FooServiceImpl implements FooService {
+
+  @Autowired
+  private DummyService service;
+
+  @Autowired
+  public FooServiceImpl(DummyService dummyservice) {
+    this.service = dummyService;
+  }
+
+  @Autowired
+  public DummyService setDummyService(DummyService dummyService) {
+    this.service = dummyService;
+  }
+
+}
+       </code>
+                    </pre></li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+  //Get the button
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+</script>
+{%endblock%}

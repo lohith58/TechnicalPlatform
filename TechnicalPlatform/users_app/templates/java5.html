@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Java Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/java/1"><i class="fas fa-arrow-circle-right">What is Java</i></a>
+     <a href="/java/2"><i class="fas fa-arrow-circle-right">JDK,JRE and JVM</i></a>
+     <a href="/java/3"><i class="fas fa-arrow-circle-right">JVM(Java Virtual Machine)Architecture</i></a>
+     <a href="/java/4"><i class="fas fa-arrow-circle-right">Java Inheritance</i></a>
+     <a href="/java/5"><i class="fas fa-arrow-circle-right">Java Interview Questions</i></a>
+     <a href="/java/6"><i class="fas fa-arrow-circle-right">Java JDBC(Java Database Conductivity)</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+   <a href="/java/4" class="btn btn-success font1 mr-2">Previous</a>
+   <a href="/java/6" class="btn btn-success font1 ml-2">Next</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Java Interview Questions  :</h3>
+   <h3 class="font1 text-left underline">What is Java?</h3>
+   <p class="font1">Java is the high-level, object-oriented, robust, secure programming language, platform-independent, high performance, Multithreaded, and portable programming language. It was developed by James Gosling in June 1991. It can also be known as the platform as it provides its own JRE and API.</p>
+   <h3 class="font1 text-left underline">What do you understand by Java virtual machine?</h3>
+   <p class="font1">Java Virtual Machine is a virtual machine that enables the computer to run the Java program. JVM acts like a run-time engine which calls the main method present in the Java code. JVM is the specification which must be implemented in the computer system. The Java code is compiled by JVM to be a Bytecode which is machine independent and close to the native code.</p>
+  <h3 class="font1 text-left underline">What is JIT compiler?</h3>
+   <p class="font1">Just-In-Time(JIT) compiler: It is used to improve the performance. JIT compiles parts of the bytecode that have similar functionality at the same time, and hence reduces the amount of time needed for compilation. Here the term “compiler” refers to a translator from the instruction set of a Java virtual machine (JVM) to the instruction set of a specific CPU.</p>
+   <h3 class="font1 text-left underline">What is the platform?</h3>
+   <p class="font1">A platform is the hardware or software environment in which a piece of software is executed. There are two types of platforms, software-based and hardware-based. Java provides the software-based platform./p>
+   <h3 class="font1 text-left underline"> What are the main differences between the Java platform and other platforms?</h3>
+   <p class="font1">There are the following differences between the Java platform and other platforms.</p>
+    <ul>
+      <li><p class="font1">Java is the software-based platform whereas other platforms may be the hardware platforms or software-based platforms.</p></li>
+      <li><p class="font1">Java is executed on the top of other hardware platforms whereas other platforms can only have the hardware components.</p></li>
+    </ul>
+  <h3 class="font1 text-left underline">What gives Java its 'write once and run anywhere' nature?</h3>
+   <p class="font1">The bytecode. Java compiler converts the Java programs into the class file (Byte Code) which is the intermediate language between source code and machine code. This bytecode is not platform specific and can be executed on any computer.</p>
+   <h3 class="font1 text-left underline">What is the purpose of static methods and variables?</h3>
+   <p class="font1">The methods or variables defined as static are shared among all the objects of the class. The static is the part of the class and not of the object. The static variables are stored in the class area, and we do not need to create the object to access such variables. Therefore, static is used in the case, where we need to define variables or methods which are common to all the objects of the class.</p>
+   <p class="font1">For example, In the class simulating the collection of the students in a college, the name of the college is the common attribute to all the students. Therefore, the college name will be defined as static.</p>
+   <h3 class="font1 text-left underline"> What are the advantages of Packages in Java?</h3>
+   <p class="font1">There are various advantages of defining packages in Java.</p>
+   <ul>
+     <li>Packages avoid the name clashes.</li><li>The Package provides easier access control.</li><li>We can also have the hidden classes that are not visible outside and used by the package.</li><li>It is easier to locate the related classes.</li>
+   </ul>
+   <h3 class="font1 text-left underline">What is the output of the following Java program?</h3>
+   <pre class="language-java">
+       <code>
+         class Test
+   {
+       public static void main (String args[])
+       {
+           System.out.println(10 + 20 + "TechPlatform");
+           System.out.println("TechPlatform" + 10 + 20);
+       }
+   }
+  </code>
+     </pre>
+     <strong>Explanation :</strong>
+   <p class="font1">In the first case, 10 and 20 are treated as numbers and added to be 30. Now, their sum 30 is treated as the string and concatenated with the string TechPlatform. Therefore, the output will be 30TechPlatform.</p>
+   <p class="font1">In the second case, the string TechPlatform is concatenated with 10 to be the string TechPlatform10 which will then be concatenated with 20 to be TechPlatform1020.</p>
+   <h3 class="font1 text-left underline">What is object-oriented paradigm?</h3>
+   <p class="font1">It is a programming paradigm based on objects having data and methods defined in the class to which it belongs. Object-oriented paradigm aims to incorporate the advantages of modularity and reusability. Objects are the instances of classes which interacts with one another to design applications and programs. There are the following features of the object-oriented paradigm.</p>
+    <h3 class="font1 text-left underline">What is the difference between an object-oriented programming language and object-based programming language?</h3>
+   <p class="font1">There are the following basic differences between the object-oriented language and object-based language.</p>
+   <p class="font1">Object-oriented languages follow all the concepts of OOPs whereas, the object-based language doesn't follow all the concepts of OOPs like inheritance and polymorphism.</p>
+   <p class="font1">Object-oriented languages do not have the inbuilt objects whereas Object-based languages have the inbuilt objects, for example, JavaScript has window object.</p>
+   <p class="font1">Examples of object-oriented programming are Java, C#, Smalltalk, etc. whereas the examples of object-based languages are JavaScript, VBScript, etc.</p>
+
+</div>
+ <br><div class="container text-right">
+   <a href="/java/4" class="btn btn-success font1 mr-2">Previous</a>
+   <a href="/java/6" class="btn btn-success font1 ml-2">Next</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}

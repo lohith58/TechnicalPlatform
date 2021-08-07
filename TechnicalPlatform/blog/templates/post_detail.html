@@ -1,0 +1,35 @@
+{%extends 'base2.html'%}
+{%block title%}TechnicalPlatform-blog({{post.title}}){%endblock%}
+{%block content_block%}
+   <h1 class="font1 underline text-center">{{post.title}}</h1><hr>
+   <p class="font1"><strong>Published on {{post.publish}} by {{post.author|title}}</strong></p>
+   <p class="font1">{{post.body|linebreaks}}</p><br><hr>
+   <div class="container" align='center'>
+      <a href="/{{post.id}}/share" class="btn btn-lg btn-primary font1">share blog by mail</a>
+   </div>
+    <hr>
+   {%if csubmit%}
+     <h2 class='font1'>Comment Added Succesfully</h2>
+   {%else%}
+      <h2 class="font1 underline">Wanna Add Comment ?It's more valuable for us . Check this out</h2>
+      <form method="post">
+         {{form.as_p}}
+         {%csrf_token%}
+         <input type="submit" class="btn btn-primary font1"   name="" value="Submit Comment">
+      </form>
+    {%endif%}
+    <hr>
+    {%with comments.count as comments_count%}
+       <h2 class="font1">{{comments_count}} Comment{{comments_count|pluralize}}</h2>
+    {%endwith%}
+    {%if comments%}
+        {%for comment in comments%}
+            <p class="font1 underline">Comment {{forloop.count}} by {{comment.name}} on {{comment.created}}</p>
+             <div class="font1">
+                 {{comment.body|linebreaks}}
+             </div>
+        {%endfor%}
+    {%else%}
+       <p class="font1">No Comments !!!</p>
+    {%endif%}
+{%endblock%}

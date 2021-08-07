@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block title%}TechPlatform-Java Theory{%endblock%}
+{%block body%}
+<h3 class="font1 underline text-center">Java Tutorial</h3><br>
+ <div class="container">
+   <div class="scrollmenu">
+     <a href="/java/1"><i class="fas fa-arrow-circle-right">What is Java</i></a>
+     <a href="/java/2"><i class="fas fa-arrow-circle-right">JDK,JRE and JVM</i></a>
+     <a href="/java/3"><i class="fas fa-arrow-circle-right">JVM(Java Virtual Machine)Architecture</i></a>
+     <a href="/java/4"><i class="fas fa-arrow-circle-right">Java Inheritance</i></a>
+     <a href="/java/5"><i class="fas fa-arrow-circle-right">Java Interview Questions</i></a>
+     <a href="/java/6"><i class="fas fa-arrow-circle-right">Java JDBC(Java Database Conductivity)</i></a>
+  </div><br>
+ </div>
+ <div class="container text-right">
+    <a href="/python/1" class="btn btn-success font1 mr-2">Previous</a>
+    <a href="/python/5" class="btn btn-success font1 mr-2">Previous</a>
+ </div>
+ <div class="container background-4">
+   <h3 class="font1 text-left underline">Inheritance in Java :</h3>
+    <p class="font1"><strong>Inheritance in Java</strong>is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).</p>
+    <p class="font1">The idea behind inheritance in Java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.</p>
+    <p class="font1">nheritance represents the <strong>IS-A relationship</strong> which is also known as a parent-child relationship.</p>
+    <h3 class="font1 text-left underline">Why use inheritance in java :</h3>
+    <ul>
+      <li>For Method Overriding (so runtime polymorphism can be achieved).</li><li>For Code Reusability.</li>
+    </ul>
+    <h3 class="font1 text-left underline">Terms used in Inheritance :</h3>
+    <p class="font1"><strong>Class: </strong> A class is a group of objects which have common properties. It is a template or blueprint from which objects are created.</p>
+    <p class="font1"><strong>Sub Class/Child Class:</strong>Subclass is a class which inherits the other class. It is also called a derived class, extended class, or child class.</p>
+    <p class="font1"><strong>Super Class/Parent Class: </strong> Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.</p>
+    <p class="font1"><strong>Reusability:</strong>As the name specifies, reusability is a mechanism which facilitates you to reuse the fields and methods of the existing class when you create a new class. You can use the same fields and methods already defined in the previous class.</p>
+    <h3 class="font1 text-left underline">The syntax of Java Inheritance :</h3>
+    <pre class="language-java">
+        <code>
+  class Subclass-name extends Superclass-name
+     {
+        //methods and fields
+     }
+ </code>
+      </pre>
+    <p class="font1">The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.</p>
+    <p class="font1">In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.</p>
+    <pre class="language-java">
+        <code>
+          class Employee{
+           float salary=40000;
+          }
+          class Programmer extends Employee{
+           int bonus=10000;
+           public static void main(String args[]){
+             Programmer p=new Programmer();
+             System.out.println("Programmer salary is:"+p.salary);
+             System.out.println("Bonus of Programmer is:"+p.bonus);
+          }
+          }
+ </code>
+      </pre>
+    <p class="font1">In the above example, Programmer object can access the field of own class as well as of Employee class i.e. code reusability.</p>
+    <h3 class="font1 text-left underline">Types of inheritance in java :</h3>
+    <p class="font1">On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.</p>
+    <p class="font1">In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.</p>
+     <h3 class="font1 text-left underline">Single Inheritance Example:</h3>
+    <p class="font1">When a class inherits another class, it is known as a single inheritance. In the example given below, Dog class inherits the Animal class, so there is the single inheritance.</p>
+    <pre class="language-java">
+        <code>
+          class Animal{
+          void eat(){System.out.println("eating...");}
+          }
+          class Dog extends Animal{
+          void bark(){System.out.println("barking...");}
+          }
+          class TestInheritance{
+          public static void main(String args[]){
+          Dog d=new Dog();
+          d.bark();
+          d.eat();
+          }}
+ </code>
+      </pre>
+    <h3 class="font1 text-left underline">Multilevel Inheritance Example:</h3>
+    <p class="font1">When there is a chain of inheritance, it is known as multilevel inheritance. As you can see in the example given below, BabyDog class inherits the Dog class which again inherits the Animal class, so there is a multilevel inheritance.</p>
+      <pre class="language-java">
+          <code>
+            class Animal{
+            void eat(){System.out.println("eating...");}
+            }
+            class Dog extends Animal{
+            void bark(){System.out.println("barking...");}
+            }
+            class BabyDog extends Dog{
+            void weep(){System.out.println("weeping...");}
+            }
+            class TestInheritance2{
+            public static void main(String args[]){
+            BabyDog d=new BabyDog();
+            d.weep();
+            d.bark();
+            d.eat();
+            }}  
+   </code>
+        </pre>
+    <h3 class="font1 text-left underline">Hierarchical Inheritance Example:</h3>
+    <p class="font1">When two or more classes inherits a single class, it is known as hierarchical inheritance. In the example given below, Dog and Cat classes inherits the Animal class, so there is hierarchical inheritance.</p>
+    <pre class="language-java">
+        <code>
+          class Animal{
+          void eat(){System.out.println("eating...");}
+          }
+          class Dog extends Animal{
+          void bark(){System.out.println("barking...");}
+          }
+          class Cat extends Animal{
+          void meow(){System.out.println("meowing...");}
+          }
+          class TestInheritance3{
+          public static void main(String args[]){
+          Cat c=new Cat();
+          c.meow();
+          c.eat();
+          //c.bark();//C.T.Error
+          }}
+ </code>
+      </pre>
+  </div>
+ <br><div class="container text-right">
+   <a href="/python/1" class="btn btn-success font1 mr-2">Previous</a>
+   <a href="/python/5" class="btn btn-success font1 mr-2">Previous</a>
+ </div><br>
+ <script type="text/javascript">
+   var mybutton = document.getElementById("myBtn");
+   window.onscroll = function() {scrollFunction()};
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       mybutton.style.display = "block";
+     } else {
+       mybutton.style.display = "none";
+     }
+   }
+   function topFunction() {
+     document.body.scrollTop = 0;
+     document.documentElement.scrollTop = 0;
+   }
+ </script>
+{%endblock%}
